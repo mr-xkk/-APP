@@ -1,0 +1,31 @@
+#slide-container {
+    .side-color {
+        background: -webkit-linear-gradient(left, #5caeff ,#6a96f9); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #5caeff, #6a96f9); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #5caeff, #6a96f9); /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #5caeff , #6a96f9); /* 标准的语法 */
+        height: 200px;
+        position: relative;
+    }
+    .slide-content{
+        height: 50px;
+        .slide-head-card{
+            position: absolute;
+            left: 0;
+            top:150px;
+            border-radius: 10px;
+        }
+        .slide-img{
+            width:70px;
+            border-radius:50%; 
+            position:absolute;
+            left:40%;
+            top:30px;
+            border:5px solid #fff;
+        }
+    } 
+    .card-ios{
+        border-radius: 10px;
+    }  
+}
+

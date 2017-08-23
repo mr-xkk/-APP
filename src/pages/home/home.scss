@@ -1,0 +1,84 @@
+#home-navbar,.home-content {
+    color: #fff;
+    background: -webkit-linear-gradient(left, #5caeff ,#6a96f9); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #5caeff, #6a96f9); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #5caeff, #6a96f9); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #5caeff , #6a96f9); /* 标准的语法 */
+    .searchbar-input{
+        border-radius: 30px;
+    }
+    /* 搜索框颜色 */
+    ion-searchbar{
+        background: transparent;
+        border: none;
+    }
+     //slide
+    .swiper-container-horizontal{
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+    /* 功能区 */
+    .func{
+        text-align: center;
+        .func-row{
+            margin: 10px 0;
+            color:#000;
+            .func-col{
+                height: 60px;
+                border-radius: 10px;
+                background: #fff;
+                h5{
+                    margin: 0
+                }
+                p{
+                    margin: 0
+                }
+                .func-btn{
+                    padding-top: 15px;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+        .func-row-all{
+            background: #fff;
+            border-radius: 5px;
+        }
+    }
+    .label-ios h2{
+        margin-top: 0;
+    }
+}
+//头部颜色
+#home-header {
+    ion-header{
+        color: #fff;
+    }
+    .toolbar-title-ios{
+        color: #fff;
+    }
+    .toolbar-background-ios{
+        background: -webkit-linear-gradient(left, #5caeff ,#6a96f9); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #5caeff, #6a96f9); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #5caeff, #6a96f9); /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #5caeff , #6a96f9); /* 标准的语法 */
+        color:#fff;
+    }
+    ion-icon{
+        color:#fff;
+    }
+}
+.header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+    border:none;
+}
+.tabs-ios .tabbar{
+    border: none;
+    box-shadow:0 0 10px rgba(106,150,249,0.7)
+}
+
+
+
+
+
+
+
+

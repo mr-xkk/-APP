@@ -1,0 +1,28 @@
+<ion-header id="home-header">
+  <ion-navbar hideBackButton="true">
+    <ion-title>登录</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="none-content">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503289507552&di=47aaca8d106cbfa8a2664f6e27472d7f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01841a577f66180000018c1bf035d3.jpg%40900w_1l_2o_100sh.jpg" alt="">
+  </div>
+  <ion-item>
+    <ion-label color="primary" floating>账号</ion-label>
+    <ion-input #username></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" floating>密码</ion-label>
+    <ion-input #password type="password"></ion-input>
+  </ion-item>
+
+  <div id="loginBtn" style="text-align: center; margin:30px 30px 0">
+    <button ion-button block color="default" (click)="logIn(username, password)">
+      登录
+    </button>
+    <button ion-button block class="grown" (click)="register()">
+      注册
+    </button>
+  </div>
+</ion-content>

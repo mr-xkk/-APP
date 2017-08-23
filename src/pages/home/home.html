@@ -1,0 +1,157 @@
+<ion-header id="home-header">
+  <ion-navbar>
+    <ion-title>首页</ion-title>
+      <ion-buttons start>
+        <button ion-button>
+          <ion-icon name="md-chatbubbles"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons end>
+          <button ion-button>
+            <ion-icon name="md-skip-forward"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="home-navbar">
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="homeRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="下拉刷新"
+        refreshingSpinner="circles"
+        refreshingText="更新中...">
+      </ion-refresher-content>
+    </ion-refresher>
+  <div class="home-content">
+    <!-- 搜索框 -->
+    <ion-searchbar class="home-search" style="background:transparent;border:none;"></ion-searchbar>
+    <!-- 轮播图 -->
+    <ion-slides pager style="height:150px;" #mySlider autoplayDisableOnInteraction=false autoplay="3000" loop=true pager=true >
+          <ion-slide *ngFor="let slideIMmg of slidePic">
+            <img style="width:100%" [src]="slideIMmg">
+          </ion-slide>
+    </ion-slides>
+    <!-- 功能分区 -->
+    <ion-grid class="func">
+      <ion-row class="func-row" align-items-start>
+        <!-- news -->
+        <ion-col col-5 class="func-col" (click)="toNews()">
+            <ion-row>
+              <ion-col col-4 class="func-btn">
+                  <ion-icon name="md-glasses" style="color:#2792ff;"></ion-icon>
+              </ion-col>  
+              <ion-col col-8>
+                <h5>新闻</h5>
+                <p>杂牌新闻</p>  
+              </ion-col>  
+            </ion-row> 
+        </ion-col>
+        <!-- music -->
+        <ion-col col-5 offset-2 class="func-col" (click)="toMusic()">
+            <ion-row>
+                <ion-col col-4 class="func-btn">
+                    <ion-icon name="ios-headset" style="color:#2792ff;"></ion-icon>
+                </ion-col>  
+                <ion-col col-8>
+                  <h5>音乐</h5>
+                  <p>我的歌单</p>  
+                </ion-col>  
+              </ion-row>  
+        </ion-col>
+      </ion-row>
+      <!-- video -->
+      <ion-row class="func-row" align-items-start>
+          <ion-col col-5 class="func-col" (click)="toVideo()">
+              <ion-row>
+                <ion-col col-4 class="func-btn">
+                    <ion-icon name="logo-instagram" style="color:#2792ff;"></ion-icon>
+                </ion-col>  
+                <ion-col col-8>
+                  <h5>视频</h5>
+                  <p>小视频</p>  
+                </ion-col>  
+              </ion-row> 
+          </ion-col>
+      <!-- me -->
+      <ion-col col-5 offset-2 class="func-col" (click)="toAboutme()">
+        <ion-row>
+          <ion-col col-4 class="func-btn">
+              <ion-icon name="md-person" style="color:#2792ff;"></ion-icon>
+          </ion-col>  
+          <ion-col col-8>
+            <h5>关于我</h5>
+            <p>is me</p>  
+          </ion-col>  
+        </ion-row> 
+        </ion-col>
+      </ion-row>
+      <ion-col col-12 class="func-row-all">
+          <ion-card>
+              <ion-card-header>
+                内容简要
+              </ion-card-header>
+              <ion-card-content style="color:#000;">
+                <p>四个主要模块的内容概要</p>
+              </ion-card-content>
+          </ion-card>
+          <!-- new -->
+          <ion-card>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503037068116&di=6e2914dfdb530e4dc97b9e6513956ea9&imgtype=0&src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_1_1088124207D3757257956_23.jpg">
+                </ion-avatar>
+                <h2>新闻模块</h2>
+                <p>都是杂牌新闻</p>
+              </ion-item>
+              <ion-card-content>
+                <p>{{homeshowNews}}</p>
+                <img [src]="newsImg" alt="新闻缩略图">
+              </ion-card-content>
+          </ion-card>
+          <!-- music -->
+          <ion-card>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503401782749&di=174dba73ac1c2ace5f5b87a2202620a3&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F14%2F75%2F44%2F09T58PIChdf_1024.jpg">
+                </ion-avatar>
+                <h2>音乐</h2>
+                <p>我的网易云歌单</p>
+              </ion-item>
+              <ion-list>
+                <ion-item *ngFor="let mitem of musicImg;let n = index">
+                  <p>{{n+1}}{{mitem.name}}</p>
+                </ion-item>
+              </ion-list>         
+          </ion-card>
+          <!-- video -->
+          <ion-card>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503401827964&di=4b5c658cdb50c455c523f4c91d767dd8&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F07b5dcd3cd14b9c6f6eaf94db9508bea27168fe8.jpg">
+                </ion-avatar>
+                <h2>视频</h2>
+                <p>集成B站视频</p>
+              </ion-item>
+              <ion-card-content>
+                <p>本来想集成B站的,可是没找到api,所以暂时没写</p>
+              </ion-card-content> 
+          </ion-card>
+          <!-- about -->
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503401945319&di=b4a3e8642da99018ce0badf0e49a698e&imgtype=0&src=http%3A%2F%2Fwww.whtlhq.com%2Fpics%2Fbd5433081.jpg"> 
+              </ion-avatar>
+              <h2>个人简介</h2>
+              <p>自我介绍</p>
+            </ion-item>
+            <ion-card-content>
+              <p>点击关于我就可以看到了~~~</p>
+            </ion-card-content>
+            </ion-card>
+          </ion-col> 
+    </ion-grid>
+  </div>
+</ion-content>

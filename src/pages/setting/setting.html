@@ -1,0 +1,22 @@
+<!--
+  Generated template for the SettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>设置个人信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item style="padding-left:0;">
+        <ion-label color="primary" stacked>昵称设置:</ion-label>
+        <ion-input #nickname type="text" placeholder="请输入昵称"></ion-input>
+    </ion-item>
+    <button ion-button full round (click)="setting(nickname)">提交修改</button>
+</ion-content>

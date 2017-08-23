@@ -1,0 +1,28 @@
+<ion-menu [content]="menuContent" side="right">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>设置</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    
+      <ion-content>
+        <ion-list>
+          <button ion-item (click)="toSet()">
+            设置个人信息
+          </button>
+          <button ion-item (click)="toCreater()">
+            关于
+          </button>
+        </ion-list>
+        <ion-list>
+          <ion-item (click)="loginOut()">
+            <ion-icon name="md-log-out" item-start></ion-icon>
+              退出登录
+          </ion-item>
+        </ion-list>
+      </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #menuContent swipeBackEnabled="false"></ion-nav>
+

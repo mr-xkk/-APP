@@ -1,0 +1,16 @@
+#news-content{
+    .new-title{
+        width:100%;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        -webkit-text-overflow:ellipsis;
+        -moz-text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+    .item-ios ion-avatar ion-img, .item-ios ion-avatar img{
+        border-radius: 0;
+        width:100px;
+        height: 70px;
+    }
+}

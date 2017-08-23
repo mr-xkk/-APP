@@ -1,0 +1,45 @@
+<ion-header id="home-header">
+    <ion-navbar>
+      <ion-title>我的</ion-title>
+        <ion-buttons end>
+            <button ion-button menuToggle>
+              <ion-icon name="ios-more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content id="slide-container">
+    <!-- 刷新页面 -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="刷新中...">
+        </ion-refresher-content>
+    </ion-refresher>
+      <div class="side-color"></div>
+      <!-- 我的信息区域 -->
+      <div class="slide-content">
+          <img class="slide-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503050744348&di=b7ed7412fc16574db422a0b696db72ec&imgtype=0&src=http%3A%2F%2Fimg02.tooopen.com%2Fproducts%2F20140118%2F29139756.jpg" alt="">
+          <ion-card class="slide-head-card">
+            <ion-card-header *ngIf="showName != ''">
+                昵称:{{showName}}
+            </ion-card-header>
+            <ion-card-header *ngIf="showName == ''">
+                随机昵称-请设置后刷新页面
+            </ion-card-header>
+            <ion-card-content>
+                <p>你的账号:  &nbsp;&nbsp;{{userData}}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <!-- 底部区域 -->
+        <ion-card (click)="toCollection()">
+            <button ion-item>
+              <ion-icon name="heart" item-start color="danger"></ion-icon>
+                我的收藏
+            </button>
+        </ion-card>
+       
+  </ion-content>
