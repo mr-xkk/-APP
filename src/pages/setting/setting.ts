@@ -46,14 +46,13 @@ export class SettingPage {
         {
           text: '确定',
           handler: () => {
-            //存储
-            localStorage.setItem("myNickname",nickname.value);
+           //修改默认昵称
             $.ajax({
               url:'http://localhost:1993/uploadImg',
               type: 'POST',
               data:{sendName:this.sendName,myName:nickname.value},
               success:(info) => {
-                console.log(info);
+                console.log(info.data);
               }
             })
             this.navCtrl.pop();

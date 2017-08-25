@@ -7,6 +7,7 @@ import { CollectionPage } from '../collection/collection';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
+declare var $:any; 
 
 @IonicPage()
 @Component({
@@ -14,13 +15,16 @@ import { CollectionPage } from '../collection/collection';
   templateUrl: 'side.html',
 })
 export class SidePage {
-  userData:string;
-  showName:string = '';
+  userData : string;
+  usersetPsw : string;
+  showName : string = '';
 
   constructor(public navCtrl: NavController) {
     let userInfo = localStorage.getItem('user');
-    console.log(userInfo)
+    let setPsw = localStorage.getItem('psw');
+    
     this.userData = userInfo;
+    this.usersetPsw = setPsw;
   }
 
   ionViewDidLoad() {
@@ -31,12 +35,17 @@ export class SidePage {
     this.navCtrl.push(CollectionPage);
   }
 
+  //刷新获取nickname
   doRefresh(refresher) {
-    setTimeout(() => {
-      let myNick = localStorage.getItem("myNickname")
-      this.showName  = myNick;
-      refresher.complete();
-    }, 1000);
-  }
-
+      $.ajax({
+        url:'http://localhost:1993/login',
+        type: 'POST',
+        data:{username:this.userData,password:this.usersetPsw},
+        success:(info) => {
+          console.log(info.data);
+          this.showName = info.data[0].nickname;
+          refresher.complete();
+        }
+      })   
+    }
 }
